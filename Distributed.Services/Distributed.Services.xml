@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Distributed.Services</name>
+    </assembly>
+    <members>
+        <member name="M:Distributed.Services.Controllers.UserController.Login(Application.Dto.Security.LoginRequestDto)">
+            <summary>
+            Permite acceso al sistema, se genera un token de acceso
+            </summary>
+            <param name="login"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
