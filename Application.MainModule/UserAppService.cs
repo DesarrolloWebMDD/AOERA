@@ -29,13 +29,11 @@ namespace Application.MainModule
         private readonly IConfiguracionCorreoRepository _configuracionCorreoRepository;
         private readonly IMaestroDetalleRepository _maestroDetalleRepository;
         private readonly IMaestroRepository _maestroRepository;
-        private readonly IUsuarioPuntoRepository _usuarioPuntoRepository;
         public UserAppService(IServiceProvider serviceProvider,
             IUsuarioRepository usuarioRepository, IConfiguration configuration,
              IMaestroRepository maestroRepository,
             IMaestroDetalleRepository maestroDetalleRepository,
-            IEmailHelper emailHelper, IConfiguracionCorreoRepository configuracionCorreoRepository,
-            IUsuarioPuntoRepository usuarioPuntoRepository) : base(serviceProvider)
+            IEmailHelper emailHelper, IConfiguracionCorreoRepository configuracionCorreoRepository) : base(serviceProvider)
 
         {
             _usuarioRepository = usuarioRepository;
@@ -44,7 +42,6 @@ namespace Application.MainModule
             _configuracionCorreoRepository = configuracionCorreoRepository;
             _maestroRepository = maestroRepository;
             _maestroDetalleRepository = maestroDetalleRepository;
-            _usuarioPuntoRepository = usuarioPuntoRepository;
         }
 
         public async Task<List<UserDto>> All()
@@ -80,14 +77,8 @@ namespace Application.MainModule
             map.Estado = HelperConst.EstadoActivo;
             map.CodigoReferencia = "USR-001";//GenerateReferenceCode().Result;
             map.Clave = EncriptFunction.Encriptar(templateDto.Password);
-            //map.UsuarioPunto = Mapper.Map<UsuarioPunto>(new UserPointDto {
-            //    Amount = Convert.ToInt32(DateTime.Now.Month),
-            //    MembershipPoint = HelperConst.PuntosMembresia,
-            //    AccumulatedPoints = 0,
-            //    State = HelperConst.EstadoActivo
-            //});
+            
 
-            map.UsuarioPunto = null;
             var validateResult = await _usuarioRepository.AddAsync(map, new UserValidator(_usuarioRepository, 1));
             if (validateResult.IsValid)
             await UnitOfWork.SaveChangesAsync();
@@ -161,11 +152,7 @@ namespace Application.MainModule
             return validateResult;
         }
 
-        public async Task<UserPointDto> GetPointByUser(int userId)
-        {
-            var domainPoint = await _usuarioPuntoRepository.Find(x => x.UsuarioId == userId).FirstOrDefaultAsync();
-            return Mapper.Map<UserPointDto>(domainPoint);
-        }
+       
         #region Private Method 
         private async Task<Usuario> GetUsertEntity(string dni, string usuario)
         {

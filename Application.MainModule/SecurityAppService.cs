@@ -37,7 +37,7 @@ namespace Application.MainModule
         {
             var userDomain = await _usuarioRepository
                 .Find(p => p.UserName == login.Username && p.Estado == HelperConst.EstadoActivo)
-                .Include(p => p.UsuarioPunto)
+                //.Include(p => p.UsuarioPunto)
                 .FirstOrDefaultAsync();
 
             if (userDomain is null)

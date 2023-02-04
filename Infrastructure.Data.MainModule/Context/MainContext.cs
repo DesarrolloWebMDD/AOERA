@@ -34,22 +34,11 @@ namespace Infrastructure.Data.MainModule.Context
         public DbSet<Maestro> Maestro { get; set; }
         public DbSet<MaestroDetalle> MaestroDetalle { get; set; }
         public DbSet<Audit> Audits { get; set; }
-        public DbSet<CategoriaFutbol> CategoriaFutbol { get; set; }
-        public DbSet<DeporteResultados> DeporteResultados { get; set; }
-        public DbSet<Deportes> Deportes { get; set; }
-        public DbSet<FutbolSubCagoria> FutbolSubCagoria { get; set; }
-        public DbSet<Ligas> Ligas { get; set; }
-        public DbSet<Membresia> Membresia { get; set; }
         public DbSet<PagoCompras> PagoCompras { get; set; }
         public DbSet<PagosIzipay> PagosIzipay { get; set; }
-        public DbSet<Premios> Premios { get; set; }
-        public DbSet<PremiosAuditoria> PremiosAuditoria { get; set; }
-        public DbSet<PuntosPaquete> PuntosPaquete { get; set; }
         public DbSet<TokenTarjetaPago> TokenTarjetaPago { get; set; }
-        public DbSet<UsuarioPunto> UsuarioPunto { get; set; }
         public DbSet<ConfiguracionCorreo> ConfiguracionCorreo { get; set; }
-        public DbSet<Aciertos> Aciertos { get; set; }
-        public DbSet<DetalleAciertos> DetalleAciertos { get; set; }
+        
        
 
        
@@ -63,20 +52,8 @@ namespace Infrastructure.Data.MainModule.Context
             builder.ApplyConfiguration(new MaestroDetalleEntityConfig());
             builder.ApplyConfiguration(new LogSessionUserConfig());
             builder.ApplyConfiguration(new AuditConfig());
-            builder.ApplyConfiguration(new CategoriaFutbolEntityConfig());
-            builder.ApplyConfiguration(new DeportesEntityConfig());
-            builder.ApplyConfiguration(new FutbolSubCagoriaEntityConfig());
-            builder.ApplyConfiguration(new LigasEntityConfig());
-            builder.ApplyConfiguration(new DeporteResultadosEntityConfig());
-            builder.ApplyConfiguration(new UsuarioPuntoEntityConfig());
-            builder.ApplyConfiguration(new PremiosEntityConfig());
-            builder.ApplyConfiguration(new PremiosAuditoriaEntityConfig());
-            builder.ApplyConfiguration(new MembresiaEntityConfig());
-            builder.ApplyConfiguration(new PuntosPaqueteEntityConfig());
             builder.ApplyConfiguration(new TokenTarjetaPagoEntityConfig());
             builder.ApplyConfiguration(new ConfiguracionCorreoEntityConfig());
-            builder.ApplyConfiguration(new AciertosEntityConfig());
-            builder.ApplyConfiguration(new DetalleAciertosEntityConfig());
         }
 
         #endregion

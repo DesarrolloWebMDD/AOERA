@@ -22,7 +22,5 @@ namespace Domain.MainModule.Entity
         public string Provincia { get; set; }
         public string CiudadRecidencia { get; set; }
         public DateTime? FechaNacimiento { get; set; }
-        public List<Membresia> Membresias { get; set; }
-        public UsuarioPunto UsuarioPunto { get; set; }
     }
 }

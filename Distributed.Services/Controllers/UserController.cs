@@ -58,12 +58,7 @@ namespace Distributed.Services.Controllers
             return new OkObjectResult(new JsonResult<UserDto>(result));
         }
 
-        [HttpGet("getPointByUser/{userId}")]
-        public async Task<ActionResult> GetPointByUser(int userId)
-        {
-            var result = await _userAppService.GetPointByUser(userId);
-            return new OkObjectResult(new JsonResult<UserPointDto>(result));
-        }
+     
         /// <summary>
         /// Permite acceso al sistema, se genera un token de acceso
         /// </summary>

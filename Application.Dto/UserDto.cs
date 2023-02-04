@@ -24,7 +24,6 @@ namespace Application.Dto
         public string ResidenceCity { get; set; }
         public DateTime BirthdayDate { get; set; }
         public int Indicador { get; set; }
-        public UserPointDto UserPoint { get; set; }
         //public int? Rol { get; set; }
         //public List<UserRolDto> RolList { get; set; }
     }
